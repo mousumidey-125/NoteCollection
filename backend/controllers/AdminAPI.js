@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const NoteModel = require("../models/Note_Schema.js")
+const path=require('path')
 
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const customDestination = "D:/NoteCollection/image/";
+        const customDestination = path.join(__dirname,"../..","frontend/src/assets/");
         cb(null, customDestination)
     },
     filename: function (req, file, cb) {

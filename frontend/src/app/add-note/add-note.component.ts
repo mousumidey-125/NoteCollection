@@ -25,7 +25,6 @@ export class AddNoteComponent {
   }
   onSubmit() {
     const formdata=new FormData()
-    this.note.countryName
     formdata.append("countryName",this.note.countryName)
     formdata.append("countryFlag",this.countryFlag)
     formdata.append("description",this.note.description)
