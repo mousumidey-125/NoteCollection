@@ -1,0 +1,11 @@
+<div class="addNote">
+    <h4>Add Note Page</h4><br>
+    <input type="text" placeholder="Country Name" class="form-control" [(ngModel)]="note.countryName"><br>
+    <input type="file" placeholder="Country Flag" class="form-control" (change)="onChangeCountryFlag($event)"><br>
+    <textarea type="text" placeholder="Description" class="form-control" [(ngModel)]="note.description"></textarea><br>
+    <input type="text" placeholder="Currency Name" class="form-control" [(ngModel)]="note.currencyName"><br>
+    <input type="text" placeholder="Denomination" class="form-control" [(ngModel)]="note.denomination"><br>
+    <input type="file" placeholder="FrontSide" class="form-control" (change)="onChangeFrontSide($event)"><br>
+    <input type="file" placeholder="Backside" class="form-control" (change)="onChangeBackSide($event)"><br>
+    <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+</div>

@@ -1,0 +1,6 @@
+country name
+country flag --->image
+description
+currency name
+denomination
+frontside,backside --->image
