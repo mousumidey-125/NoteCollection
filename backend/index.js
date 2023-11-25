@@ -8,8 +8,6 @@ app.use(express.json())
 const cors=require('cors');
 app.use(cors());
 
-
-
 const my_mongoose=require('./dbconnect-promise')
 
 const adminAPI=require('./controllers/AdminAPI')

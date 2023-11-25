@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const NoteModel = require("../models/Note_Schema.js")
 const path=require('path')
+const { v4: uuidv4 } = require('uuid');
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -23,12 +24,13 @@ router.post('/addNote', multipleUpload, (req, res) => {
         countryName: req.body.countryName,
         countryFlag: req.files.countryFlag[0].filename,
         description: req.body.description,
-        currencyName: req.body.description,
+        currencyName: req.body.currencyName,
         denomination: req.body.denomination,
         frontSide: req.files.frontSide[0].filename,
         backside: req.files.backside[0].filename,
+        uniqueId:req.body.countryName+req.body.currencyName+req.body.denomination+uuidv4()
     })
-    NoteModel.find({countryName: req.body.countryName})
+    NoteModel.find({uniqueId:req.body.countryName+req.body.currencyName+req.body.denomination+uuidv4()})
     .then((result)=>{
         if(result.length>0){
             res.send([])
@@ -47,4 +49,18 @@ router.post('/addNote', multipleUpload, (req, res) => {
     })
 })
 
+
+router.get('/showNotes',(req,res)=>{
+    NoteModel.find()
+    .then((result)=>{
+        if(result.length>0){
+            res.send(result)
+        }
+        else{
+            res.send([])
+        }
+    }).catch((err)=>{
+        console.log({ message: err.message })
+    })
+})
 module.exports = router;

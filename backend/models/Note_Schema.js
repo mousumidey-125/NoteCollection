@@ -10,6 +10,7 @@ const NoteSchema = schema_mongoose.Schema(
     denomination:{type:String},
     frontSide:{type:String},
     backside:{type:String},
+    uniqueId:{type:String},
 
     },
     {

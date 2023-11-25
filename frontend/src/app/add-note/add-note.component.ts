@@ -11,6 +11,8 @@ export class AddNoteComponent {
   countryFlag:any
   frontSide:any
   backside:any
+  showmsg:boolean=false
+  showerror:boolean=false
   constructor(public note: INote, public adminServiceObj: AdminServiceService) { }
   onChangeCountryFlag(event:any){
     this.countryFlag = event.target.files[0]
@@ -32,8 +34,25 @@ export class AddNoteComponent {
     formdata.append("denomination",this.note.denomination)
     formdata.append("frontSide",this.frontSide)
     formdata.append("backside",this.backside)
-    this.adminServiceObj.addNote(formdata).subscribe((res)=>{
+    this.adminServiceObj.addNote(formdata).subscribe((res:any)=>{
       console.log(res)
+      if(res.length>0){
+        this.showmsg=true
+        this.showerror=false
+        this.note.countryName=""
+        this.countryFlag=""
+        this.note.description=""
+        this.note.currencyName=""
+        this.note.denomination=""
+        this.frontSide=""
+        this.backside=""
+
+      }
+      else{
+        this.showerror=true
+        this.showmsg=false
+
+      }
     })
 
   }
