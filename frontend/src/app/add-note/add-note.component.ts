@@ -8,6 +8,8 @@ import { AdminServiceService } from '../_services/admin-service.service';
   styleUrls: ['./add-note.component.css']
 })
 export class AddNoteComponent {
+ 
+
   countryFlag:any
   frontSide:any
   backside:any
@@ -46,6 +48,8 @@ export class AddNoteComponent {
         this.note.denomination=""
         this.frontSide=""
         this.backside=""
+        
+        
 
       }
       else{

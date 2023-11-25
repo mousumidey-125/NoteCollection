@@ -1,8 +1,15 @@
 <div class="notes" *ngFor="let note of noteList">
-    <p>{{note.countryName}}</p>
-    <p>{{note.description}}</p>
-    <p>{{note.currencyName}}</p>
-    <p>{{note.denomination}}</p>
+    <p>Country Name:{{note.countryName}}</p>
+    <p>Country Description:{{note.description}}</p>
+    <p>Country CurrencyName:{{note.currencyName}}</p>
+    <p>Denomination:{{note.denomination}}</p>
+    <p>Flag:</p>
+    <img src="../assets/{{note.countryFlag}}" height="200">
+    <p>FrontSide:</p>
+    <img src="../assets/{{note.frontSide}}" height="200">
+    <p>BackSide:</p>
+    <img src="../assets/{{note.backside}}" height="200">
+    <hr>
 
 
 </div>
