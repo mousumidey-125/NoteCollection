@@ -8,14 +8,18 @@ import { AdminServiceService } from '../_services/admin-service.service';
   styleUrls: ['./add-note.component.css']
 })
 export class AddNoteComponent {
- 
-
   countryFlag:any
   frontSide:any
   backside:any
   showmsg:boolean=false
   showerror:boolean=false
+  countries: any[] = [];
   constructor(public note: INote, public adminServiceObj: AdminServiceService) { }
+  ngOnInit(){
+    this.adminServiceObj.getCountryNames().subscribe((res) => {
+      this.countries = res;
+    });
+  }
   onChangeCountryFlag(event:any){
     this.countryFlag = event.target.files[0]
   }
