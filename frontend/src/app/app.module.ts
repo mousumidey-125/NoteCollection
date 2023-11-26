@@ -9,6 +9,10 @@ import { INote } from './_models/NoteSchema';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowNotesComponent } from './show-notes/show-notes.component';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule, 
+    MatButtonModule,
   ],
   providers: [INote],
   bootstrap: [AppComponent]

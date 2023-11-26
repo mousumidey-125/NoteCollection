@@ -8,6 +8,7 @@ import { INote } from '../_models/NoteSchema';
   styleUrls: ['./show-notes.component.css']
 })
 export class ShowNotesComponent {
+  
   noteList:INote[]=[]
   constructor(public adminServiceObj:AdminServiceService){}
   ngOnInit(){
@@ -17,6 +18,7 @@ export class ShowNotesComponent {
     })
 
   }
+  
 
 
 }

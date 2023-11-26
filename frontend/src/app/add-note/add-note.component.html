@@ -8,6 +8,7 @@
         <option *ngFor="let country of countries" [value]="country">
             {{country}}
           </option>
+          <option>Others</option>
       </select><br>
         
     <input type="file" name ="countryFlag" placeholder="Country Flag" class="form-control" (change)="onChangeCountryFlag($event)"><br>

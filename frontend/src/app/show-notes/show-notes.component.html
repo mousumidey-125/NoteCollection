@@ -1,15 +1,78 @@
-<div class="notes" *ngFor="let note of noteList">
-    <p>Country Name:{{note.countryName}}</p>
-    <p>Country Description:{{note.description}}</p>
-    <p>Country CurrencyName:{{note.currencyName}}</p>
-    <p>Denomination:{{note.denomination}}</p>
-    <p>Flag:</p>
-    <img src="../assets/{{note.countryFlag}}" height="200">
-    <p>FrontSide:</p>
-    <img src="../assets/{{note.frontSide}}" height="200">
-    <p>BackSide:</p>
-    <img src="../assets/{{note.backside}}" height="200">
-    <hr>
 
+<div class="container" *ngFor="let note of noteList">
+    <div class="row">
+        <div class="flag">
+            <img src="../assets/{{note.countryFlag}}" height="100" width="150">
+
+        </div>
+        <div class="countryName">
+            <p>{{note.countryName}}</p>
+            <p>{{note.denomination}} {{note.currencyName}}</p>
+            
+        </div>
+        <div class="description">
+            {{note.description}}
+        </div>
+        
+
+    </div>
+    <div class="row">
+
+        <div class="noteImage">
+            <img src="../assets/{{note.frontSide}}" height="150" width="300" >
+        </div>
+        <div class="noteImage">
+            <img src="../assets/{{note.backside}}" height="150"  width="300" >
+        </div>
+    </div>
+    
 
 </div>
+
+<!-- <div class="container" *ngFor="let note of noteList">
+    <div class="header">
+        <div class="left">
+            <p>{{note.countryName}}</p>
+            <p>{{note.denomination}} {{note.currencyName}}</p>
+
+        </div>
+        <div class="right">
+            <img src="../assets/{{note.countryFlag}}" height="130" width="200">
+        </div>
+    </div>
+    <div class="noteImage">
+        <div class="frontside">
+            <img src="../assets/{{note.frontSide}}" height="130" width="400">
+        </div>
+        <div class="backside">
+            <img src="../assets/{{note.backside}}" height="130" width="400">
+        </div>
+
+    </div>
+    <div class="description">
+        {{note.description}}
+    </div>
+    <hr>
+
+</div> -->
+
+<!-- <div class="notes" *ngFor="let note of noteList">
+    <div class="child">
+        <p>Country Name:{{note.countryName}}</p>
+        <img src="../assets/{{note.countryFlag}}" height="200">
+    </div>
+    <div class="child">
+        <p>Country Description:{{note.description}}</p>
+        <p>Country CurrencyName:{{note.currencyName}}</p>
+        <p>Denomination:{{note.denomination}}</p>
+    </div>
+    <div>
+        <p>FrontSide:</p>
+        <img src="../assets/{{note.frontSide}}" height="200">
+        <p>BackSide:</p>
+        <img src="../assets/{{note.backside}}" height="200">
+        <hr>
+
+    </div>
+
+</div> -->
