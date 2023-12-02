@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { INote } from '../_models/NoteSchema';
 import { Observable, of } from 'rxjs';
 import { countries } from 'countries-list';
 
