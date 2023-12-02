@@ -2,7 +2,6 @@
     <h4>Add Note Page</h4><br>
     <p [hidden]="!showmsg">Note added Successfully</p>
     <p [hidden]="!showerror">Already added</p>
-    <!-- <input type="text" placeholder="Country Name" class="form-control" [(ngModel)]="note.countryName"><br> -->
     <select class="form-select" aria-label="Default select example" name="countryName" [(ngModel)]="note.countryName">
         <option [ngValue]="undefined" [disabled]="true">Select the Country</option>
         <option *ngFor="let country of countries" [value]="country">
@@ -14,7 +13,7 @@
     <input type="file" name ="countryFlag" placeholder="Country Flag" class="form-control" (change)="onChangeCountryFlag($event)"><br>
     <textarea type="text" name ="description" placeholder="Description" class="form-control" [(ngModel)]="note.description"></textarea><br>
     <input type="text" name ="currencyName" placeholder="Currency Name" class="form-control" [(ngModel)]="note.currencyName"><br>
-    <input type="text" name ="denomination" placeholder="Denomination" class="form-control" [(ngModel)]="note.denomination"><br>
+    <input type="number" name ="denomination" placeholder="Denomination" class="form-control" [(ngModel)]="note.denomination"><br>
     <input type="file" name ="frontSide" placeholder="FrontSide" class="form-control" (change)="onChangeFrontSide($event)"><br>
     <input type="file" name ="backSide" placeholder="Backside" class="form-control" (change)="onChangeBackSide($event)"><br>
     <button class="btn btn-success" (click)="onSubmit()">Submit</button>
