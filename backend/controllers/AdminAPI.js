@@ -64,4 +64,17 @@ router.get('/showNotes',(req,res)=>{
     })
 })
 
+router.get('/search/:countryName', (req,res)=>{
+    
+    NoteModel.find({countryName:req.params.countryName})
+    .then((result)=>{
+        if(result.length>0){
+            res.send(result)
+        }
+        else{
+            res.send([])
+        }
+    })
+
+})
 module.exports = router;

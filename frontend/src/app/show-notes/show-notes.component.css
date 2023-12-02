@@ -63,9 +63,13 @@
     align-items: center;
     
 }
-.home span,p{
+.home span{
     font-size: 30px;
 }
+.home p{
+    font-size: 30px;
+}
+
 .container {
     /* margin-left: 10%;
     margin-right: 10%; */
