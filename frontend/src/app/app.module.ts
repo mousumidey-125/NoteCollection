@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+//import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {MatCardModule} from '@angular/material/card';
     BrowserAnimationsModule,
     MatCardModule, 
     MatButtonModule,
+    //Ng2SearchPipeModule
   ],
   providers: [INote],
   bootstrap: [AppComponent]

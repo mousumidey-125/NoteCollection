@@ -1,31 +1,36 @@
 
-<div class="container" *ngFor="let note of noteList">
-    <div class="row">
-        <div class="flag">
-            <img src="../assets/{{note.countryFlag}}" height="100" width="150">
-
-        </div>
-        <div class="countryName">
-            <p>{{note.countryName}}</p>
-            <p>{{note.denomination}} {{note.currencyName}}</p>
-            
-        </div>
-        <div class="description">
-            {{note.description}}
+<div class="navbar">
+<div class="heading">
+    <span class="material-symbols-outlined logo_icon">
+        collections_bookmark
+        </span>
+<P>My Collection</P>
+</div>
+<div class="searchBar">
+    <span class="material-symbols-outlined search_icon">
+        search
+        </span>
+    <input placeholder="Search by Country name" class="search_input">
+</div>
+</div>
+<div class="container" >
+    <div class="noteItems" *ngFor="let note of noteList">
+        <div class="header">
+            <div class="countryFlag">
+                <img src="../assets/{{note.countryFlag}}" height="50">
+            </div>
+            <div class="details">
+                <p>{{note.countryName}}</p>
+                <p>{{note.denomination}} {{note.currencyName}}</p>
+            </div>
         </div>
         
+        <div class="noteImage">
+            <img src="../assets/{{note.frontSide}}" height="135" width="345"><br><br>
+            <img src="../assets/{{note.backside}}" height="135" width="345">
+        </div>
 
     </div>
-    <div class="row">
-
-        <div class="noteImage">
-            <img src="../assets/{{note.frontSide}}" height="150" width="300" >
-        </div>
-        <div class="noteImage">
-            <img src="../assets/{{note.backside}}" height="150"  width="300" >
-        </div>
-    </div>
-    
 
 </div>
 
