@@ -18,7 +18,7 @@
 }
 
 .heading {
-    width: 50%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +31,7 @@
 .logo_icon{
     font-size: 30px;
 }
+
 .searchBar{
     width: 50%;
     display: flex;
@@ -54,6 +55,16 @@
     border: none;
     outline: none;
     border-radius: 0px 4px 4px 0px;
+} 
+
+.home{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    
+}
+.home span,p{
+    font-size: 30px;
 }
 .container {
     /* margin-left: 10%;

@@ -12,6 +12,12 @@
         </span>
     <input placeholder="Search by Country name" class="search_input">
 </div>
+<div class="home">
+    <span class="material-symbols-outlined">
+        home
+        </span>
+        <p [routerLink]="'/home'">Home</p>
+</div>
 </div>
 <div class="container" >
     <div class="noteItems" *ngFor="let note of noteList">
