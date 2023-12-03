@@ -1,25 +1,28 @@
-
 <div class="navbar">
-<div class="heading">
-    <span class="material-symbols-outlined logo_icon">
-        collections_bookmark
+    <div class="heading">
+        <span class="material-symbols-outlined logo_icon">
+            collections_bookmark
         </span>
-<P>My Collection</P>
-</div>
-<div class="searchBar">
-    <span class="material-symbols-outlined search_icon">
-        search
+        <P (click)="showAll()">My Collection</P>
+    </div>
+    <div class="searchBar">
+        <span class="material-symbols-outlined search_icon">
+            search
         </span>
-    <input placeholder="Search by Country name" class="search_input">
-</div>
-<div class="home">
-    <span class="material-symbols-outlined">
-        home
+        <input placeholder="Search by Country name" class="search_input" (keyup.enter)="onEnterPress($event)"
+            [(ngModel)]="note.countryName">
+    </div>
+    <div class="home">
+        <span class="material-symbols-outlined">
+            home
         </span>
         <p [routerLink]="'/home'">Home</p>
+    </div>
 </div>
+<div class="showResult">
+    <p [hidden]="!showSearchResult"> No result found</p>
 </div>
-<div class="container" >
+<div class="container">
     <div class="noteItems" *ngFor="let note of noteList">
         <div class="header">
             <div class="countryFlag">
@@ -30,60 +33,18 @@
                 <p>{{note.denomination}} {{note.currencyName}}</p>
             </div>
         </div>
-        
+    
+
         <div class="noteImage">
             <img src="../assets/{{note.frontSide}}" height="135" width="345"><br><br>
             <img src="../assets/{{note.backside}}" height="135" width="345">
         </div>
 
+        <div class="description">
+
+            <p>{{note.description}}</p>
+        </div>
+
     </div>
 
 </div>
-
-<!-- <div class="container" *ngFor="let note of noteList">
-    <div class="header">
-        <div class="left">
-            <p>{{note.countryName}}</p>
-            <p>{{note.denomination}} {{note.currencyName}}</p>
-
-        </div>
-        <div class="right">
-            <img src="../assets/{{note.countryFlag}}" height="130" width="200">
-        </div>
-    </div>
-    <div class="noteImage">
-        <div class="frontside">
-            <img src="../assets/{{note.frontSide}}" height="130" width="400">
-        </div>
-        <div class="backside">
-            <img src="../assets/{{note.backside}}" height="130" width="400">
-        </div>
-
-    </div>
-    <div class="description">
-        {{note.description}}
-    </div>
-    <hr>
-
-</div> -->
-
-<!-- <div class="notes" *ngFor="let note of noteList">
-    <div class="child">
-        <p>Country Name:{{note.countryName}}</p>
-        <img src="../assets/{{note.countryFlag}}" height="200">
-    </div>
-    <div class="child">
-        <p>Country Description:{{note.description}}</p>
-        <p>Country CurrencyName:{{note.currencyName}}</p>
-        <p>Denomination:{{note.denomination}}</p>
-    </div>
-    <div>
-        <p>FrontSide:</p>
-        <img src="../assets/{{note.frontSide}}" height="200">
-        <p>BackSide:</p>
-        <img src="../assets/{{note.backside}}" height="200">
-        <hr>
-
-    </div>
-
-</div> -->

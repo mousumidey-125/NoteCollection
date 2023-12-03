@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable, of } from 'rxjs';
 import { countries } from 'countries-list';
+import { INote } from '../_models/NoteSchema';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,9 @@ export class AdminServiceService {
   getCountryNames(): Observable<string[]> {
     const countryNames = Object.values(countries).map((country) => country.name);
     return of(countryNames);
+  }
+  search(countryName:any){
+    let url=this.baseUrl+"/search/"+countryName
+    return this.httpObj.get(url)
   }
 }

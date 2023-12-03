@@ -7,7 +7,7 @@ import { ShowNotesComponent } from './show-notes/show-notes.component';
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "home",
+    redirectTo: "shownotes",
     pathMatch: 'full'
   },
   {

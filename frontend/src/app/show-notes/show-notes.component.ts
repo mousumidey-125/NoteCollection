@@ -8,17 +8,40 @@ import { INote } from '../_models/NoteSchema';
   styleUrls: ['./show-notes.component.css']
 })
 export class ShowNotesComponent {
-  
-  noteList:INote[]=[]
-  constructor(public adminServiceObj:AdminServiceService){}
-  ngOnInit(){
-    this.adminServiceObj.showNote().subscribe((res:any)=>{
+
+  noteList: INote[] = []
+  searchNote: INote[] = []
+  showSearchResult: boolean = false
+  constructor(public adminServiceObj: AdminServiceService, public note: INote) { }
+  ngOnInit() {
+    this.adminServiceObj.showNote().subscribe((res: any) => {
       console.log(res)
-      this.noteList=res
+      this.noteList = res
     })
 
   }
-  contentArray = ["Item 1", "Item 2", "Item 3", "Item 4"];
+  showAll(){
+    this.adminServiceObj.showNote().subscribe((res: any) => {
+      console.log(res)
+      this.noteList = res
+      this.showSearchResult = false
+    })
+  }
+  onEnterPress(event: any) {
+    
+    this.adminServiceObj.search(this.note.countryName).subscribe((res: any) => {
+      if (res.length > 0) {
+        console.log(res)
+        this.noteList = res
+        this.showSearchResult = false
+      }
+      else {
+        console.log("not found")
+        this.noteList = []
+        this.showSearchResult = true
+      }
+    })
+  }
 
 
 }

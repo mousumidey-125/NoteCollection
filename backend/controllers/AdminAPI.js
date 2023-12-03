@@ -74,6 +74,8 @@ router.get('/search/:countryName', (req,res)=>{
         else{
             res.send([])
         }
+    }).catch((err)=>{
+        console.log({ message: err.message })
     })
 
 })
