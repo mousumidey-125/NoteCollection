@@ -9,6 +9,9 @@ import { INote } from './_models/NoteSchema';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowNotesComponent } from './show-notes/show-notes.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { IAdmin } from './_models/adminSchema';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -17,7 +20,9 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     AddNoteComponent,
     ShowNotesComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
    
   ],
-  providers: [INote],
+  providers: [INote,IAdmin],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

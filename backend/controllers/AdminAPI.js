@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt')
 const NoteModel = require("../models/Note_Schema.js")
+const AdminModel=require("../models/admin_schema.js")
 const path=require('path')
 const { v4: uuidv4 } = require('uuid');
 
@@ -78,5 +80,57 @@ router.get('/search/:countryName', (req,res)=>{
         console.log({ message: err.message })
     })
 
+})
+router.post('/adminreg', (req, res) => {
+    bcrypt.hash(req.body.adminPassword, 10)
+        .then((encpass) => {
+            const adminObj = new AdminModel({
+                adminEmail: req.body.adminEmail,
+                adminPassword: encpass,
+
+            })
+            AdminModel.find({ $or: [{ adminEmail: req.body.adminEmail }, { adminPhone: req.body.adminPhone }] })
+                .then((result) => {
+                    if (result.length > 0) {
+                        res.send([])
+                    }
+                    else {
+                        adminObj.save()
+                            .then((result) => {
+                                res.send([result])
+                            }).catch((err) => {
+                                console.log({ message: err.message })
+                            })
+                    }
+                }).catch((err) => {
+                    console.log({ message: err.message })
+                })
+        })
+
+})
+router.post("/adminlogin", (req, res) => {
+    AdminModel.find({ adminEmail: req.body.adminEmail })
+        .then((result) => {
+            if (result.length > 0) {
+                let collectedPass = req.body.adminPassword;
+                let storedPass = result[0].adminPassword;
+                bcrypt.compare(collectedPass, storedPass)
+                    .then((passMatch) => {
+                        if (passMatch == true) {
+                            res.send(result)
+                        }
+                        else {
+                            res.send([])
+                        }
+                    }).catch((err) => {
+                        console.log({ message: err.message })
+                    })
+            }
+            else {
+                res.send([])
+            }
+        }).catch((err) => {
+            console.log({ message: err.message })
+        })
 })
 module.exports = router;

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { HomeComponent } from './home/home.component';
 import { ShowNotesComponent } from './show-notes/show-notes.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path:"addNote",
     component:AddNoteComponent
+  },
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:"admin",
+    component:AdminComponent
   }
 ];
 
